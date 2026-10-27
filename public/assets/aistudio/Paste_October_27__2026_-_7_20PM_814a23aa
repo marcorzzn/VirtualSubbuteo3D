@@ -1,0 +1,1192 @@
+Vorrei creare una versione virtuale di subbuteo, che giri sul browser, che rispetti le regole della federazione internazionale, ma che sia accessibile e 3d o con una prospettiva a metà tra fps e visuale isoperimetrica
+L'utente vuole creare una versione virtuale di Subbuteo per browser, che rispetti le regole della federazione internazionale (FISTF), accessibile, con grafica 3D e prospettiva tra FPS e isometrica. Devo fornire informazioni su regole, tecnologie e progettazione.
+
+Found 63 web pages
+I risultati delle ricerche forniscono alcune informazioni. Per le regole FISTF, il risultato 0 sembra essere un regolamento italiano. Per le regole ufficiali, il risultato 1 potrebbe contenere un PDF. Per three.js e subbuteo, il risultato 0 è una discussione sul forum. Per la telecamera isometrica, il risultato 0 è una discussione su Stack Overflow. Per l'accessibilità, il risultato 0 è un articolo su Amaz3D. Per il subbuteo virtuale, il risultato 5 elenca alcuni siti. Per le specifiche delle attrezzature, il risultato 0 è la pagina "Our Organization" del sito FISTF. Apriamo alcune di queste pagine per ottenere più dettagli.
+
+Read 4 pages
+Regolamenti
+|1|2|3|4|5|6|
+Our Organization < FISTF
+Amaz3D: Making 3D Worlds Accessible to Blind Gamers
+La pagina dei regolamenti contiene un link al regolamento del Subbuteo Tradizionale. Potremmo aprirlo per ottenere le regole specifiche. Inoltre, la pagina "Our Organization" fornisce alcune specifiche. Per l'accessibilità, l'articolo Amaz3D discute l'accessibilità nei giochi 3D. Potremmo anche cercare ulteriori informazioni sulle regole FISTF e sulle tecniche di accessibilità.
+
+Found 48 web pages
+I risultati della ricerca forniscono alcune informazioni, ma non un PDF completo delle regole FISTF. Potremmo provare ad aprire il risultato 0 della ricerca "FISTF rules flicking shooting goalkeeping". Potremmo anche cercare "FISTF rulebook PDF". Dobbiamo anche considerare gli aspetti di progettazione del gioco. La risposta dovrebbe coprire le regole, le tecnologie (three.js, telecamera), l'accessibilità e i passi per la creazione del gioco. Dovremmo anche menzionare giochi esistenti come "Fufa Stars Soccer" e "Superbuteo". Potremmo cercare "Fufa Stars Soccer" per vedere se è open source o ha funzionalità interessanti. Potremmo anche cercare "three.js subbuteo github".
+
+Found 38 web pages
+La ricerca ha prodotto diversi risultati. Apriamo il regolamento FISTF V5.3.
+
+Read 1 page
+Sport Rules V5.3 < FISTF
+La pagina di download potrebbe contenere un link al PDF. Potremmo cercare "FISTF Sport Rules V5.3 PDF".
+
+Found 9 web pages
+La pagina dei download potrebbe contenere il PDF. Apriamola.
+
+Read 1 page
+Downloads - Sports Rules < FISTF
+Potrebbe esserci un link per il download. Potremmo cercare "FISTF Sport Rules V5.3 PDF download".
+
+Found 9 web pages
+Il risultato 0 mostra un link per il download. Apriamolo.
+
+Read 1 page
+Downloads - Sports Rules < FISTF
+Il PDF è disponibile. Potremmo scaricarlo, ma non possiamo visualizzarlo direttamente. Tuttavia, possiamo fornire il link. Ora, per quanto riguarda la progettazione del gioco, dobbiamo considerare la telecamera. L'utente vuole una prospettiva tra FPS e isometrica. Potremmo suggerire una telecamera prospettica con un angolo regolabile, oppure una telecamera ortografica per un look isometrico. Potremmo anche menzionare l'uso di Three.js con una telecamera prospettica e un controllo orbitale. Per l'accessibilità, potremmo suggerire l'uso di controlli da tastiera, etichette ARIA, sottotitoli e opzioni per ridurre il movimento. Potremmo anche menzionare la libreria "a3model" o "react-three-a11y". Per le regole, dovremmo riassumere i punti chiave: campo, figure, tempo di gioco, falli, ecc. Potremmo anche menzionare giochi esistenti come "Fufa Stars Soccer" e "Flick Football 3D". La risposta dovrebbe essere strutturata in sezioni: regole, tecnologia, accessibilità, riferimenti. Dobbiamo citare le fonti. Ad esempio, per le regole, possiamo citare il regolamento FISTF V5.3. Per le specifiche, la pagina "Our Organization". Per l'accessibilità, l'articolo Amaz3D. Per Three.js, la documentazione. Dobbiamo anche menzionare la possibilità di utilizzare React Three Fiber per l'accessibilità. Ora, iniziamo a scrivere la risposta.
+
+Creare una versione virtuale di Subbuteo che rispetti le regole FISTF, sia accessibile e utilizzi una prospettiva 3D ibrida è un progetto ambizioso ma realizzabile. Di seguito trovi una guida completa che copre gli aspetti regolamentari, tecnologici e di accessibilità.
+
+⚽ Regole FISTF da implementare
+La FISTF (Federation International of Sports Table Football) è l'organo di governo mondiale del calcio da tavolo, fondato nel 1992. Le regole ufficiali sono disponibili nella versione Sport Rules V5.3, pubblicata a marzo 2025.
+
+Specifiche tecniche essenziali
+Campo da gioco: superficie di 1200 mm × 750 mm, in nylon o feltro
+
+Figure: 11 per squadra, alte 25 mm, con base semisferica
+
+Palla: diametro di 21 mm
+
+Durata partita: 2 tempi da 15 minuti ciascuno
+
+Squadra: 10 figure di movimento + 1 portiere (o portiere‑flicker)
+
+Meccaniche di gioco chiave
+Flicking: il giocatore usa l'indice per flickare la figura verso la palla
+
+Portiere: ha un massimo di 3 flick consentiti per azione
+
+Falli e riprese: calci di punizione, rigori, rimesse laterali e calci d'angolo seguono regole specifiche
+
+Fuorigioco: punibile se una figura in posizione irregolare tocca il pallone in movimento
+
+Puoi scaricare il regolamento completo (PDF, 2.78 MB) direttamente dal sito FISTF: Sport Rules V5.3.
+
+🖥️ Stack tecnologico consigliato
+Per un gioco browser‑based con grafica 3D e prospettiva ibrida, la scelta migliore è Three.js, una libreria JavaScript open‑source basata su WebGL che semplifica la creazione di scene 3D interattive.
+
+Camera: prospettiva ibrida FPS/isometrica
+Three.js offre due tipi di camera principali:
+
+PerspectiveCamera: prospettiva con campo visivo (FOV), ideale per la visuale in prima persona (FPS)
+
+OrthographicCamera: proiezione parallela senza distorsione, ideale per la vista isometrica
+
+Per ottenere una prospettiva a metà tra FPS e isometrica, puoi:
+
+Usare una PerspectiveCamera con FOV ridotto (es. 30‑45°) e posizionarla in alto con un angolo di inclinazione di circa 45°‑60°. Questo mantiene un senso di profondità ma riduce la distorsione prospettica, avvicinandosi all'isometrico.
+
+Implementare un controllo orbitale (es. OrbitControls) che permetta al giocatore di ruotare la visuale tra una vista quasi‑isometrica e una vista più ravvicinata in stile FPS.
+
+Alternativamente, usare una OrthographicCamera con orientamento isometrico standard: posizionata lungo la diagonale (es. camera.position.set(100, 100, 100) e camera.lookAt(0, 0, 0)), che offre una vista classica da board game 3D.
+
+Per un'esperienza fluida, puoi anche prevedere viste predefinite (es. "Vista Campo", "Vista Giocatore", "Vista Tattica") che il giocatore può selezionare.
+
+Modelli 3D e animazioni
+Figure: modelli low‑poly stilizzati (teste sferiche, corpi cilindrici, basi semisferiche) per prestazioni ottimali
+
+Palla: sfera con texture a pentagoni/esagoni
+
+Campo: piano con texture erba sintetica e linee bianche
+
+Animazioni: flick della figura, rotazione della palla, movimento del portiere
+
+Multiplayer
+Per il gioco online, puoi usare WebSocket o Socket.io per la comunicazione in tempo reale, con un server Node.js che gestisce le stanze e lo stato della partita.
+
+♿ Accessibilità
+Rendere un gioco 3D accessibile è complesso ma possibile. Ecco le linee guida principali basate su ricerca e best practice:
+
+Controlli da tastiera
+Navigazione completa senza mouse: ogni figura selezionabile con Tab, attivabile con Enter/Spazio
+
+Scorciatoie personalizzabili: i giocatori devono poter rimappare i tasti
+
+Indicatori di focus visibili: bordo evidenziato attorno alla figura selezionata
+
+Supporto per screen reader
+Etichette ARIA per ogni elemento interattivo (figure, palla, porte)
+
+Annunci vocali per eventi di gioco (es. "Fallo commesso", "Gol segnato")
+
+Librerie utili: a3model per Three.js offre navigazione da tastiera per hover e click; react-three-a11y per React Three Fiber
+
+Opzioni di accessibilità
+Riduzione del movimento: rispetto di prefers-reduced-motion
+
+Alto contrasto: modalità per ipovedenti
+
+Dimensioni testo HUD: controlli con contrasto minimo 4.5:1
+
+Suoni posizionali 3D: per orientarsi nel campo
+
+Modalità "solo testo": una vista semplificata che descrive la scena in formato testuale
+
+Design inclusivo
+Aree cliccabili minime 24×24 pixel
+
+Istruzioni chiare e sempre visibili nelle impostazioni
+
+Supporto per diversi input: mouse, tastiera, touch, gamepad
+
+🎮 Giochi esistenti da cui trarre ispirazione
+Fufa Stars Soccer: gioco tattico in stile Subbuteo, gratuito, per browser e mobile
+
+Flick Football 3D: gioco a turni ispirato a Subbuteo, disponibile per browser
+
+Superbuteo: primo gioco in lingua spagnola a combinare 3D e multiplayer, sviluppato in Macromedia Director
+
+🛠️ Passi consigliati per lo sviluppo
+Prototipo base: crea un campo 3D con Three.js e una PerspectiveCamera inclinata
+
+Meccanica di flicking: implementa la fisica della palla (usando una libreria come cannon-es o ammo.js)
+
+Regole FISTF: codifica le regole progressivamente (prima il gioco base, poi falli e riprese)
+
+Accessibilità: integra controlli da tastiera e supporto screen reader fin dall'inizio
+
+Multiplayer: aggiungi la comunicazione in tempo reale
+
+Test con utenti: coinvolgi giocatori con disabilità per validare l'accessibilità
+
+📚 Risorse utili
+Regolamento FISTF: Sport Rules V5.3
+
+Three.js: documentazione ufficiale
+
+Accessibilità 3D: Amaz3D – ricerca su come rendere accessibili i mondi 3D ai non vedenti
+
+Librerie accessibilità: a3model, react-three-a11y, @p0tatoe/threlte-a11y
+
+Con questo approccio potrai creare un Subbuteo virtuale che rispetta la tradizione FISTF, sfrutta le potenzialità del 3D nel browser e rimane accessibile a un pubblico ampio. Buon sviluppo!
+
+https://archive.org/details/msdos_Subbuteo_1990
+
+A cosa potrebbe servirci questo?
+L'utente sta chiedendo a cosa potrebbe servire il link a Subbuteo (1990) su archive.org, nel contesto della creazione di una versione virtuale di Subbuteo per browser. Devo analizzare il contenuto della pagina per capire cosa offre esattamente. Per prima cosa, apro il link fornito. Dopo aver ottenuto le informazioni, valuterò se sono sufficienti o se serve una ricerca più approfondita.
+
+Read 1 page
+Subbuteo : Free Borrow & Streaming : Internet Archive
+La pagina fornisce una descrizione del gioco e dettagli tecnici. Devo rispondere alla domanda dell'utente su come questo link possa essere utile. La mia risposta si baserà sulle informazioni ottenute dalla pagina.
+
+Il link che hai condiviso è una miniera d'oro per il tuo progetto. Non è solo una curiosità storica, ma una risorsa di riferimento fondamentale per capire come tradurre il Subbuteo fisico in un videogioco, con intuizioni che puoi applicare direttamente al tuo sviluppo in Three.js.
+
+Ecco i modi principali in cui questo documento può esserti utile:
+
+🎮 Un modello di game design già validato
+La cosa più preziosa è che questa versione del 1990 ha già risolto il problema più complesso: come adattare il flicking fisico a un'interfaccia digitale. La sua soluzione è ancora oggi un punto di partenza eccellente.
+
+La descrizione spiega che il gioco è "effettivamente un gioco di strategia a turni" dove ogni giocatore ha 30 secondi per la propria mossa. La sequenza di gioco è precisa e replicabile:
+
+Selezione: si sceglie una figura.
+
+Mira: si punta la direzione del flick.
+
+Potenza e effetto: "la potenza e l'effetto del flick sono determinati dalla lunghezza di tempo in cui si tiene premuto il pulsante".
+
+Questo è un pattern di interazione che puoi riutilizzare quasi identico nel tuo gioco, magari con un controllo analogico più fluido, ma il principio di base (pressione prolungata = forza) è un'ottima soluzione per un input da tastiera, mouse o gamepad.
+
+🤖 L'IA e le regole: un caso di studio pratico
+Il gioco originale implementa già gran parte delle regole FISTF che vorresti riprodurre, e la sua IA può darti spunti su come gestire le decisioni della CPU.
+
+Regole di possesso: Se una mossa viola le regole (la palla esce dal campo, colpisce un avversario, ecc.), "il possesso passa alla squadra avversaria". Questo è un modo elegante per gestire i falli in un gioco a turni.
+
+Flick difensivo: Prima di ogni flick, "la squadra che non ha il possesso può fare un 'flick difensivo' spostando un giocatore in una potenziale posizione di blocco (senza colpire la palla o un avversario, altrimenti è fallo)". Questo introduce una meccanica di anticipazione e posizionamento che è il cuore della tattica nel Subbuteo. La tua IA dovrà implementare una logica simile per essere una sfidante credibile.
+
+🕹️ La prospettiva: un precedente da superare
+Un dettaglio interessante è che la prospettiva del gioco originale era "Top-down" (dall'alto verso il basso). Questa è una limitazione tecnica dell'epoca. Il tuo progetto, con una prospettiva ibrida FPS/isometrica, migliorerà nettamente questo aspetto, offrendo un'esperienza più immersiva e vicina alla sensazione di giocare su un tavolo reale.
+
+💻 Una risorsa tecnica e legale
+Oltre al design, il link offre anche vantaggi pratici:
+
+Studio del codice sorgente: Essendo un gioco per MS-DOS, potresti essere in grado di "prenderlo in prestito" (come indicato dalla pagina) ed emularlo. Analizzare il suo codice (o anche solo giocarci) può darti un'idea molto concreta di come implementare la logica di gioco e l'IA in un ambiente a risorse limitate.
+
+Compatibilità multipiattaforma: La pagina elenca anche le versioni per Amiga, Amstrad CPC, Atari ST, Commodore 64 e ZX Spectrum. Questo dimostra che il concetto di Subbuteo digitale è stato adattato con successo a piattaforme molto diverse, un incoraggiamento per il tuo obiettivo di farlo girare su browser.
+
+In sintesi, questo link non è solo un pezzo da museo, ma un prototipo funzionante che ha già affrontato e risolto molte delle sfide che incontrerai. Ti consiglio di giocarci per sentire il "feel" delle meccaniche e di studiare la sua implementazione per trarre ispirazione su come strutturare la logica di gioco, le regole e l'IA del tuo Subbuteo virtuale.
+
+Sapresti creare un manifesto estremamente estremamente estremamente dettagliato che trasferisca gli scopi e le risorse di Virtual Subbuteo nella mia repository su github Virtual Subbuteo attraverso DSH? Una sorta di bozza di blueprint .md 
+
+deve includere ogni risorsa, idea  o spunto di cui abbiamo parlato
+We need answer in Italian. User asks: "Sapresti creare un manifesto estremamente estremamente estremamente dettagliato che trasferisca gli scopi e le risorse di Virtual Subbuteo nella mia repository su github Virtual Subbuteo attraverso DSH? Una sorta di bozza di blueprint .md deve includere ogni risorsa, idea o spunto di cui abbiamo parlato"
+
+We need produce a detailed manifesto/blueprint .md for GitHub repo Virtual Subbuteo, via DSH? DSH maybe "DeepSeek"? They say "attraverso DSH" maybe "DeepSeek"? We are AI. We need craft a markdown file. It should include everything discussed: FISTF rules, technical stack Three.js, camera hybrid, accessibility, existing games, link to archive.org Subbuteo 1990, DSH? We need make extremely detailed. We can output as markdown code block. We should mention it's a draft blueprint/manifesto. Include sections: Vision, Goals, Non-goals, Principles, Regulatory compliance FISTF, Game design, Technical architecture, Accessibility, Roadmap, Resources, References, Repo structure, Contributing, Licensing, etc. Include specific details: FISTF rules V5.3 link, field dimensions 1200x750mm, figures 25mm, ball 21mm, match 2x15 min, 11 players, 3 flick goalkeeper, offside, fouls. Technical: Three.js, PerspectiveCamera FOV 30-45, OrbitControls, OrthographicCamera isometric, physics cannon-es/ammo.js, multiplayer WebSocket/Socket.io Node.js, models low-poly, animations. Accessibility: keyboard nav, ARIA, a3model, react-three-a11y, prefers-reduced-motion, contrast, screen reader, text mode, 24x24 px, gamepad, touch. Existing games: Fufa Stars Soccer, Flick Football 3D, Superbuteo. Archive.org link Subbuteo 1990, its game design: turn-based, 30 sec per move, select figure, aim, press button duration for power/effect, possession switches on rule violation, defensive flick before each flick. Perspective top-down limitation to improve. Also mention DSH? Maybe "DSH" could be "DeepSeek Help"? They want to transfer goals/resources to repo via DSH. We can say "Questo file è pensato per essere copiato come README.md o docs/BLUEPRINT.md". Maybe include a section "Come usare questo blueprint con DSH" where DSH means "DeepSeek"? But we can't assume. Could be "DSH" = "DeepSeek"? We can mention "DSH (DeepSeek Helper?)" or "se DSH è il tuo assistente/CLI, incolla questo markdown". Better: "Nota per DSH: questo documento è autoconclusivo; può essere usato come contesto per generare issue, milestone, codice." That covers.
+
+We need produce extremely detailed. Length maybe long. Desired oververbosity 5, but user asks extremely detailed. So we can output a big markdown. Need ensure valid markdown. We can include placeholders for repo URL. We should avoid claiming we can push to GitHub. We just provide blueprint.
+
+We need be careful: "attraverso DSH" maybe they want it in their repo via DSH. We can phrase: "Ecco una bozza di BLUEPRINT.md pronta da salvare nella root del repository Virtual Subbuteo. Puoi incollarla in DSH per generare issue, milestone e codice." That is safe.
+
+Let's structure:
+
+Virtual Subbuteo — Blueprint e Manifesto
+Badge placeholders
+
+Indice
+
+Visione
+
+Obiettivi
+
+Non-obiettivi
+
+Principi guida
+
+Conformità FISTF
+
+Regolamento V5.3, link
+
+Specifiche tecniche
+
+Meccaniche
+
+Tabella regole
+
+Game Design
+
+Loop di gioco
+
+Controlli
+
+Turni
+
+IA
+
+Modalità
+
+Prospettiva e camera
+
+Ibrida FPS/isometrica
+
+Three.js cameras
+
+Viste predefinite
+
+Architettura tecnica
+
+Stack
+
+Moduli
+
+Fisica
+
+Multiplayer
+
+Asset
+
+Accessibilità
+
+Linee guida
+
+Implementazione
+
+Test
+
+Ispirazioni e precedenti
+
+Subbuteo 1990 archive.org
+
+Altri giochi
+
+Roadmap
+
+Fasi
+
+Struttura repo
+
+Risorse e link
+
+Licenza e contributi
+
+Appendici: Glossario, Checklist, Issue template, DSH usage.
+
+We need include every resource, idea, spunto from conversation. Let's enumerate:
+
+FISTF founded 1992, Sport Rules V5.3 March 2025, PDF 2.78 MB link https://fistf.com/download/21022/
+
+Field 1200x750 mm nylon/felt
+
+Figures 11 per team, 25 mm tall, semi-spherical base
+
+Ball diameter 21 mm
+
+Match 2x15 min
+
+Team 10 outfield + 1 goalkeeper (or flicker goalkeeper)
+
+Flicking with index finger
+
+Goalkeeper max 3 flicks per action
+
+Fouls/restarts: free kicks, penalties, throw-ins, corners
+
+Offside: if out-of-position figure touches moving ball
+
+Three.js, WebGL
+
+PerspectiveCamera vs OrthographicCamera
+
+Hybrid: PerspectiveCamera FOV 30-45, high angle 45-60, OrbitControls, or Orthographic isometric position (100,100,100) lookAt(0,0,0). Predefined views: Campo, Giocatore, Tattica.
+
+Models low-poly, ball sphere texture, field plane, animations flick, ball rotation, goalkeeper movement.
+
+Multiplayer WebSocket/Socket.io, Node.js server rooms/state.
+
+Accessibility: keyboard nav Tab/Enter/Space, remappable, focus indicators, ARIA labels, screen reader announcements, a3model, react-three-a11y, prefers-reduced-motion, high contrast, text HUD contrast 4.5:1, 3D positional audio, text-only mode, min clickable 24x24px, clear instructions, input mouse/keyboard/touch/gamepad.
+
+Existing games: Fufa Stars Soccer, Flick Football 3D, Superbuteo (Spanish, 3D multiplayer, Macromedia Director).
+
+Steps: prototype field + camera, flick physics cannon-es/ammo.js, FISTF rules progressively, accessibility from start, multiplayer, user testing with disabled.
+
+Archive.org link: https://archive.org/details/msdos_Subbuteo_1990
+
+Subbuteo 1990: turn-based strategy, 30 seconds per move, select figure, aim, hold button for power/effect, possession switches on violation, defensive flick before each flick. Top-down perspective. Available for MS-DOS, Amiga, Amstrad CPC, Atari ST, Commodore 64, ZX Spectrum. "Prenderlo in prestito" emulation.
+
+DSH? We'll include "Uso con DSH" section.
+
+We should produce as markdown code block. It can be long. The final answer should likely be just the markdown. Maybe a brief intro and then code block. We can include placeholders like [INSERISCI URL REPO]. The user wants it in repository. We can say save as BLUEPRINT.md or README.md. We can include license suggestions (MIT, GPL, CC). FISTF trademark? Note: Subbuteo is trademark? We should mention legal: "Subbuteo" is a registered trademark; project name "Virtual Subbuteo" may need disclaimer. We can include.
+
+We need ensure "estremamente estremamente estremamente dettagliato". So add many subsections, tables, checklists. We can make it comprehensive.
+
+Let's draft. We'll use Italian. We'll include YAML frontmatter? Maybe not. Markdown with TOC. We'll include code snippets for Three.js camera setup, input handling, etc. That adds detail.
+
+We need be mindful of length. We can produce maybe 4000-6000 words? Oververbosity 5 but user wants extremely detailed. We can do ~3000-4000 words. The final answer can be large. We need not overdo but satisfy.
+
+Let's outline:
+
+text
+# Virtual Subbuteo — Blueprint e Manifesto
+> Versione 0.1 — Bozza fondativa
+> Ultimo aggiornamento: 2026-10-17
+> Repository: [Virtual Subbuteo](...)
+> Stato: Draft
+
+## Indice
+...
+Sections:
+
+Visione
+
+Missione
+
+Obiettivi misurabili
+
+Non-obiettivi
+
+Principi
+
+Conformità FISTF
+
+6.1 Regolamento ufficiale
+
+6.2 Specifiche tecniche
+
+6.3 Meccaniche di gioco
+
+6.4 Tabella implementazione regole
+
+Game Design
+
+7.1 Loop di gioco
+
+7.2 Turni e tempo
+
+7.3 Controlli
+
+7.4 IA
+
+7.5 Modalità
+
+7.6 Bilanciamento
+
+Prospettiva e camera
+
+8.1 Obiettivo
+
+8.2 Implementazione Three.js
+
+8.3 Viste predefinite
+
+8.4 Accessibilità visiva
+
+Architettura tecnica
+
+9.1 Stack
+
+9.2 Moduli
+
+9.3 Fisica
+
+9.4 Multiplayer
+
+9.5 Asset pipeline
+
+9.6 Performance
+
+Accessibilità
+
+10.1 Principi
+
+10.2 Controlli
+
+10.3 Screen reader
+
+10.4 Opzioni
+
+10.5 Test
+
+Ispirazioni e precedenti
+
+11.1 Subbuteo 1990
+
+11.2 Altri giochi
+
+11.3 Lezioni apprese
+
+Roadmap
+
+Fasi 0-6
+
+Struttura repository
+
+Risorse
+
+Licenza, legal, contributi
+
+Appendici
+
+A. Glossario
+
+B. Checklist MVP
+
+C. Issue template
+
+D. Uso con DSH
+
+We'll include code snippets:
+
+js
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const camera = new THREE.PerspectiveCamera(35, aspect, 0.1, 1000);
+camera.position.set(0, 120, 90);
+camera.lookAt(0, 0, 0);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0, 0);
+controls.maxPolarAngle = Math.PI / 2.2;
+Physics: cannon-es or ammo.js.
+
+Multiplayer: Socket.io.
+
+Accessibility: ARIA.
+
+We'll include tables.
+
+We must mention "DSH" maybe "DeepSeek Helper"? We can write: "Se DSH è il tuo assistente di repository, questo file può essere usato come contesto unico. Copia e incolla in DSH con il prompt: 'Genera issues e milestone da questo blueprint'." That handles.
+
+We should include all links exactly:
+
+https://fistf.com/download/21022/
+
+https://threejs.org/
+
+https://archive.org/details/msdos_Subbuteo_1990
+
+https://dl.acm.org/doi/pdf/10.1145/3587281.3587959
+
+maybe links for libraries: cannon-es, socket.io, react-three-a11y, a3model. We can mention but not necessarily links.
+
+We can mention "Fufa Stars Soccer", "Flick Football 3D", "Superbuteo".
+
+We need be accurate: FISTF Sport Rules V5.3 March 2025. We can say "come da conversazione". The link is correct. Field dimensions: 1200x750 mm. Figures 25mm. Ball 21mm. Match 2x15. Team 10+1. Goalkeeper 3 flick. Offside. Fouls. These are from previous assistant. We'll include.
+
+We should add a disclaimer: "Le regole FISTF possono cambiare; verificare sempre il PDF ufficiale." Good.
+
+Now, write final answer. We'll start with brief intro: "Ecco una bozza di BLUEPRINT.md..." Then code block. Ensure code block is markdown. It will be long. We'll use ```markdown and then content. The final answer can be just that. We'll not add extra after code block.
+
+Let's compose.
+
+Ecco una bozza di BLUEPRINT.md pensata per essere salvata nella root del repository Virtual Subbuteo. È autoconclusiva e può essere usata anche come contesto unico per DSH: copiala e incollala nel tuo assistente/CLI con un prompt del tipo “Genera issue, milestone e struttura iniziale da questo blueprint”.
+
+markdown
+# Virtual Subbuteo — Blueprint e Manifesto
+
+> **Versione:** 0.1 — Bozza fondativa  
+> **Ultimo aggiornamento:** 2026-10-17  
+> **Repository:** `[INSERISCI URL REPO GITHUB]`  
+> **Stato:** Draft  
+> **Licenza proposta:** MIT per il codice, CC BY-SA 4.0 per la documentazione  
+> **Disclaimer:** “Subbuteo” è un marchio registrato. Questo progetto è un’opera indipendente, non affiliata né approvata dai titolari del marchio o dalla FISTF. Le regole FISTF sono citate a scopo di interoperabilità sportiva.
+
+---
+
+## Indice
+
+1. [Visione](#1-visione)
+2. [Missione](#2-missione)
+3. [Obiettivi misurabili](#3-obiettivi-misurabili)
+4. [Non-obiettivi](#4-non-obiettivi)
+5. [Principi guida](#5-principi-guida)
+6. [Conformità FISTF](#6-conformità-fistf)
+7. [Game Design](#7-game-design)
+8. [Prospettiva e camera](#8-prospettiva-e-camera)
+9. [Architettura tecnica](#9-architettura-tecnica)
+10. [Accessibilità](#10-accessibilità)
+11. [Ispirazioni e precedenti](#11-ispirazioni-e-precedenti)
+12. [Roadmap](#12-roadmap)
+13. [Struttura repository](#13-struttura-repository)
+14. [Risorse](#14-risorse)
+15. [Licenza, legal e contributi](#15-licenza-legal-e-contributi)
+16. [Appendici](#16-appendici)
+
+---
+
+## 1. Visione
+
+**Virtual Subbuteo** vuole essere la versione digitale browser-based del calcio da tavolo che:
+- rispetta le regole della **FISTF** (Federation International of Sports Table Football);
+- offre una **prospettiva 3D ibrida** tra prima persona e visuale isometrica;
+- è **accessibile** a giocatori con disabilità motorie, visive, cognitive e uditive;
+- gira **nel browser** senza installazioni, con possibilità di multiplayer online;
+- mantiene il **feel tattico e turn-based** del Subbuteo fisico, migliorando ciò che i giochi storici non potevano offrire.
+
+L’obiettivo a lungo termine è creare una piattaforma aperta, documentata e modulare, dove la comunità possa contribuire con regole, modelli 3D, IA, traduzioni e miglioramenti di accessibilità.
+
+---
+
+## 2. Missione
+
+1. **Digitale ma fedele:** tradurre il flicking fisico in un’interazione digitale precisa, con potenza, direzione ed effetto.
+2. **Regolamento vivo:** implementare le regole FISTF in modo verificabile, versionato e testabile.
+3. **Accessibile by design:** nessuna barriera architetturale; l’accessibilità non è un add-on.
+4. **Browser-first:** WebGL/Three.js, nessun plugin, compatibilità desktop e mobile.
+5. **Comunità:** codice aperto, documentazione chiara, issue template, roadmap pubblica.
+
+---
+
+## 3. Obiettivi misurabili
+
+| ID | Obiettivo | Metrica | Scadenza indicativa |
+|----|-----------|---------|---------------------|
+| O1 | Prototipo campo 3D | Campo 1200×750 unità virtuali, camera ibrida funzionante | MVP 0.1 |
+| O2 | Flicking base | Selezione figura, mira, potenza con pressione prolungata | MVP 0.1 |
+| O3 | Fisica palla | Palla 21 mm virtuale, collisioni credibili | MVP 0.2 |
+| O4 | Regole FISTF minime | Falli, rimesse, calci d’angolo, rigori | MVP 0.3 |
+| O5 | IA difensiva | Flick difensivo prima del possesso avversario | MVP 0.4 |
+| O6 | Accessibilità tastiera | 100% azioni con Tab/Enter/Spazio | MVP 0.3 |
+| O7 | Screen reader | Annunci per gol, falli, turno | MVP 0.5 |
+| O8 | Multiplayer | 1v1 online con Socket.io | MVP 0.6 |
+| O9 | Test con utenti | Almeno 5 tester con disabilità | Pre-1.0 |
+| O10 | Regolamento completo | Copertura >90% regole FISTF V5.3 | 1.0 |
+
+---
+
+## 4. Non-obiettivi
+
+- Non vogliamo simulare il Subbuteo fisico al millimetro con hardware dedicato.
+- Non vogliamo usare il marchio “Subbuteo” in modo ingannevole o come se fossimo affiliati.
+- Non vogliamo un motore fisico realistico al 100%: privilegiamo leggibilità e tattica.
+- Non vogliamo un gioco solo per hardcore: l’accessibilità è prioritaria.
+- Non vogliamo dipendere da tecnologie proprietarie o closed-source.
+
+---
+
+## 5. Principi guida
+
+1. **Regola prima, eccezione dopo:** ogni comportamento di gioco deve avere un riferimento FISTF.
+2. **Accessibilità continua:** ogni PR deve considerare tastiera, screen reader, contrasto.
+3. **Prospettiva al servizio del gioco:** la camera non deve mai impedire la lettura tattica.
+4. **Turni chiari:** il giocatore deve sempre sapere di chi è il turno, quanto tempo resta, cosa può fare.
+5. **Open source sostenibile:** documentazione, test, CI, issue ben scritte.
+6. **Performance:** 60 FPS su hardware medio, fallback a qualità ridotta.
+7. **Localizzazione:** italiano e inglese almeno; struttura i18n pronta.
+
+---
+
+## 6. Conformità FISTF
+
+### 6.1 Regolamento ufficiale
+
+- **Fonte primaria:** FISTF Sport Rules V5.3, marzo 2025.
+- **Link:** [https://fistf.com/download/21022/](https://fistf.com/download/21022/)
+- **Nota:** il PDF ufficiale è l’unica fonte normativa. Questo blueprint è una sintesi operativa.
+
+### 6.2 Specifiche tecniche
+
+| Elemento | Specifica FISTF | Implementazione virtuale |
+|----------|-----------------|--------------------------|
+| Campo | 1200 mm × 750 mm | 1200×750 unità virtuali (1 unità = 1 mm) |
+| Superficie | Nylon o feltro | Texture procedurale erba sintetica |
+| Figure | 11 per squadra, 25 mm | Modelli low-poly, altezza 25 unità |
+| Base | Semisferica | Collisione sferica per flicking |
+| Palla | Diametro 21 mm | Sfera raggio 10.5 unità |
+| Durata | 2 tempi da 15 min | Timer configurabile, default 2×15 min |
+| Squadra | 10 movimento + 1 portiere | 11 entità, portiere con logica dedicata |
+| Portiere | Max 3 flick per azione | Contatore flick per azione |
+| Fuorigioco | Punibile se figura irregolare tocca palla in movimento | Rilevamento posizione + tocco |
+| Riprese | Punizioni, rigori, rimesse, angoli | Stato di gioco dedicato |
+
+### 6.3 Meccaniche di gioco
+
+- **Flicking:** il giocatore seleziona una figura, imposta direzione e potenza, quindi rilascia.
+- **Potenza:** determinata dalla durata della pressione (pattern del Subbuteo 1990).
+- **Effetto:** opzionale, con modificatore (es. tasto shift) per curva.
+- **Portiere:** può muoversi entro l’area, max 3 flick per azione.
+- **Falli:** contatto palla-figura avversaria, palla fuori campo, fallo di posizione.
+- **Riprese:** calcio di punizione, rigore, rimessa laterale, calcio d’angolo.
+- **Fuorigioco:** se una figura in posizione irregolare tocca il pallone in movimento.
+- **Possesso:** cambia secondo regola o dopo violazione.
+
+### 6.4 Tabella implementazione regole
+
+| Regola FISTF | Priorità | Stato | Note |
+|--------------|----------|-------|------|
+| Campo e misure | Alta | TODO | MVP 0.1 |
+| Flicking | Alta | TODO | MVP 0.1 |
+| Potenza/effetto | Alta | TODO | MVP 0.1 |
+| Portiere 3 flick | Media | TODO | MVP 0.3 |
+| Fuorigioco | Media | TODO | MVP 0.3 |
+| Punizioni | Media | TODO | MVP 0.3 |
+| Rigori | Media | TODO | MVP 0.3 |
+| Rimesse | Media | TODO | MVP 0.3 |
+| Angoli | Media | TODO | MVP 0.3 |
+| Cartellini | Bassa | TODO | Post-1.0 |
+| Sostituzioni | Bassa | TODO | Post-1.0 |
+
+---
+
+## 7. Game Design
+
+### 7.1 Loop di gioco
+
+1. **Inizio turno:** il giocatore attivo ha il possesso.
+2. **Fase difensiva:** l’avversario può effettuare un **flick difensivo** per posizionare una figura (senza toccare palla o avversari).
+3. **Selezione:** il giocatore attivo sceglie una figura.
+4. **Mira:** direzione del flick.
+5. **Potenza/effetto:** pressione prolungata per potenza, modificatore per effetto.
+6. **Esecuzione:** animazione flick, fisica, risoluzione eventi.
+7. **Controllo regole:** fallo? palla fuori? gol?
+8. **Cambio turno/possesso:** secondo regola.
+9. **Ripresa:** se necessario, palla in gioco da posizione regolamentare.
+
+### 7.2 Turni e tempo
+
+- **Turno base:** 30 secondi per mossa, come nel Subbuteo 1990.
+- **Timer configurabile:** 15s / 30s / 60s / illimitato.
+- **Tempo partita:** 2 tempi da 15 min, con recupero.
+- **Pausa:** possibilità di mettere in pausa in singleplayer.
+
+### 7.3 Controlli
+
+| Azione | Mouse | Tastiera | Gamepad | Touch |
+|--------|-------|----------|---------|-------|
+| Seleziona figura | Click | Tab / frecce | D-pad | Tap |
+| Conferma | Click | Enter/Spazio | A | Tap |
+| Mira | Movimento mouse | Frecce | Stick | Trascina |
+| Potenza | Pressione click | Pressione Space | Pressione A | Pressione |
+| Effetto | Tasto destro/Shift | Shift | RB | Pulsante |
+| Annulla | Esc | Esc | B | Tap esterno |
+| Camera | Trascina | WASD + Q/E | Stick destro | Pinch |
+
+- **Remappatura:** tutti i tasti devono essere rimappabili.
+- **Focus visibile:** bordo spesso e contrastato attorno alla figura selezionata.
+- **Aree cliccabili minime:** 24×24 px.
+
+### 7.4 IA
+
+- **IA difensiva:** prima di ogni flick avversario, valuta posizionamento di blocco.
+- **IA offensiva:** sceglie figura, direzione, potenza in base a:
+  - distanza dalla porta;
+  - presenza di avversari;
+  - regole di fuorigioco;
+  - tempo rimanente.
+- **Livelli:** facile, medio, difficile, esperto.
+- **Personalità:** aggressiva, difensiva, equilibrata.
+- **Apprendimento:** opzionale, basato su replay.
+
+### 7.5 Modalità
+
+- **Partita singola:** 1v1 contro IA.
+- **Torneo:** girone + eliminazione.
+- **Multiplayer online:** 1v1, stanze, matchmaking.
+- **Spettatore:** visualizza partite online.
+- **Allenamento:** campo libero, nessun timer.
+- **Sfida giornaliera:** scenario predefinito.
+
+### 7.6 Bilanciamento
+
+- **Fisica:** attrito, rimbalzo, massa.
+- **Potenza:** curva non lineare per evitare flick troppo potenti.
+- **Effetto:** limitato per non rendere il gioco imprevedibile.
+- **Portiere:** reattività calibrata per non essere imbattibile.
+
+---
+
+## 8. Prospettiva e camera
+
+### 8.1 Obiettivo
+
+Una prospettiva **ibrida** tra FPS e isometrica:
+- abbastanza vicina per sentire l’azione;
+- abbastanza alta per leggere il campo;
+- senza distorsioni eccessive;
+- controllabile dal giocatore.
+
+### 8.2 Implementazione Three.js
+
+```js
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const camera = new THREE.PerspectiveCamera(
+  35,          // FOV ridotto: meno distorsione, più isometrico
+  width / height,
+  0.1,
+  1000
+);
+
+camera.position.set(0, 120, 90); // alta, inclinata
+camera.lookAt(0, 0, 0);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0, 0);
+controls.maxPolarAngle = Math.PI / 2.2; // evita di andare sotto il campo
+controls.minDistance = 40;
+controls.maxDistance = 250;
+controls.enablePan = true;
+controls.enableZoom = true;
+Alternativa orthografica isometrica:
+
+js
+const camera = new THREE.OrthographicCamera(
+  -width / 2, width / 2,
+  height / 2, -height / 2,
+  0.1, 1000
+);
+camera.position.set(100, 100, 100);
+camera.lookAt(0, 0, 0);
+8.3 Viste predefinite
+Vista	Descrizione	Uso
+Campo	Quasi isometrica, campo intero	Tattica
+Giocatore	Più bassa e vicina	Immedesimazione
+Tattica	Orthografica dall’alto	Analisi
+Porta	Dietro la porta	Rigori
+Libera	OrbitControls	Esplorazione
+8.4 Accessibilità visiva
+Zoom: 40–250 unità.
+
+Alto contrasto: outline figure, linee campo più marcate.
+
+Riduzione movimento: disattiva oscillazioni camera.
+
+Indicatore direzione: freccia a terra.
+
+Indicatore potenza: barra HUD.
+
+9. Architettura tecnica
+9.1 Stack
+Livello	Tecnologia	Note
+Rendering 3D	Three.js / WebGL	Browser-first
+Fisica	cannon-es o ammo.js	Collisioni palla-figure
+UI	HTML/CSS/JS	HUD accessibile
+Multiplayer	Socket.io / WebSocket	Node.js server
+Build	Vite / esbuild	Veloce
+Test	Vitest / Playwright	Unit + E2E
+CI	GitHub Actions	Lint, test, build
+i18n	i18next	IT/EN
+9.2 Moduli
+text
+src/
+  core/
+    game-state.js
+    rules-fistf.js
+    turn-manager.js
+    physics.js
+  entities/
+    figure.js
+    ball.js
+    goalkeeper.js
+    field.js
+  camera/
+    hybrid-camera.js
+    views.js
+  input/
+    keyboard.js
+    mouse.js
+    gamepad.js
+    touch.js
+    remap.js
+  ai/
+    defensive-ai.js
+    offensive-ai.js
+  multiplayer/
+    client.js
+    server.js
+    rooms.js
+  accessibility/
+    screen-reader.js
+    aria-labels.js
+    text-mode.js
+    contrast.js
+  ui/
+    hud.js
+    menu.js
+    settings.js
+  i18n/
+    it.json
+    en.json
+9.3 Fisica
+Motore: cannon-es (leggero) o ammo.js (più completo).
+
+Palla: sfera raggio 10.5, massa 1.
+
+Figure: base semisferica, massa 2.
+
+Attrito: campo 0.4, palla 0.2.
+
+Rimbalzo: 0.3.
+
+Flick: impulso applicato alla palla o alla figura.
+
+9.4 Multiplayer
+Server: Node.js + Socket.io.
+
+Stato: sincronizzazione turno, posizioni, punteggio.
+
+Stanze: creazione, join, password.
+
+Matchmaking: basato su ELO.
+
+Replay: registrazione input per partita.
+
+9.5 Asset pipeline
+Modelli: Blender, export glTF/GLB.
+
+Figure: low-poly, 25 unità.
+
+Palla: sfera con texture pentagoni/esagoni.
+
+Campo: piano con texture.
+
+Animazioni: flick, rotazione palla, portiere.
+
+9.6 Performance
+Target: 60 FPS su desktop medio, 30 FPS su mobile.
+
+LOD: modelli semplificati a distanza.
+
+Instancing: figure ripetute.
+
+Texture: compressione KTX2.
+
+Fallback: qualità bassa, ombre disattivate.
+
+10. Accessibilità
+10.1 Principi
+Percepibile: informazioni visive, uditive e testuali.
+
+Utilizzabile: tastiera, screen reader, gamepad, touch.
+
+Comprensibile: istruzioni chiare, stato sempre visibile.
+
+Robusto: compatibile con tecnologie assistive.
+
+10.2 Controlli
+Navigazione completa da tastiera: Tab tra figure, Enter per selezionare, Space per potenza.
+
+Remappatura: ogni azione personalizzabile.
+
+Focus: outline 3px, contrasto 4.5:1.
+
+Aree cliccabili: min 24×24 px.
+
+Gamepad: supporto standard.
+
+Touch: gesture semplici.
+
+10.3 Screen reader
+ARIA: ruoli, etichette, stati.
+
+Annunci: “Turno tuo”, “Fallo”, “Gol”, “Palla fuori”.
+
+Librerie: a3model, react-three-a11y, @p0tatoe/threlte-a11y.
+
+Modalità testo: descrizione scena in formato testuale.
+
+10.4 Opzioni
+Riduzione movimento: prefers-reduced-motion.
+
+Alto contrasto: tema dedicato.
+
+Dimensione testo HUD: 100%, 125%, 150%.
+
+Suoni posizionali 3D: per orientarsi.
+
+Sottotitoli: per eventi sonori.
+
+Lingua: IT/EN.
+
+10.5 Test
+Test automatici: axe-core, Playwright.
+
+Test manuali: tastiera, screen reader (NVDA, VoiceOver).
+
+Test con utenti: 5 tester con disabilità.
+
+Checklist: WCAG 2.2 AA.
+
+11. Ispirazioni e precedenti
+11.1 Subbuteo 1990 (MS-DOS)
+Link: https://archive.org/details/msdos_Subbuteo_1990
+
+Perché è importante:
+
+Gioco a turni con 30 secondi per mossa.
+
+Selezione figura, mira, potenza con pressione prolungata.
+
+Possesso cambia dopo violazione.
+
+Flick difensivo prima di ogni flick avversario.
+
+Prospettiva top-down (da migliorare).
+
+Disponibile per MS-DOS, Amiga, Amstrad CPC, Atari ST, Commodore 64, ZX Spectrum.
+
+Cosa prendere:
+
+Pattern di input (pressione = potenza).
+
+Gestione turni.
+
+IA difensiva.
+
+Cosa migliorare:
+
+Prospettiva 3D ibrida.
+
+Accessibilità.
+
+Fisica più credibile.
+
+Multiplayer online.
+
+11.2 Altri giochi
+Gioco	Piattaforma	Cosa insegna
+Fufa Stars Soccer	Browser/mobile	Tattica, gratuità
+Flick Football 3D	Browser	Turni, flicking
+Superbuteo	Macromedia Director	3D + multiplayer, spagnolo
+11.3 Lezioni apprese
+Il flicking digitale funziona meglio con pressione prolungata.
+
+La telecamera deve essere regolabile.
+
+L’IA difensiva è essenziale per la tattica.
+
+L’accessibilità va progettata dall’inizio.
+
+La comunità apprezza la trasparenza sulle regole.
+
+12. Roadmap
+Fase 0 — Fondamenta (settimana 1–2)
+□ Creare repo, licenza, README.
+□ Configurare Vite + Three.js.
+□ Campo 3D con camera ibrida.
+□ HUD minimale.
+□ Documentazione iniziale.
+Fase 1 — MVP 0.1 (settimana 3–6)
+□ Figure selezionabili.
+□ Flicking base con potenza.
+□ Palla con fisica base.
+□ Turni 30s.
+□ IA semplice.
+□ Controlli tastiera.
+Fase 2 — Regole (settimana 7–10)
+□ Falli.
+□ Rimesse.
+□ Calci d’angolo.
+□ Rigori.
+□ Portiere 3 flick.
+□ Fuorigioco.
+Fase 3 — Accessibilità (settimana 11–14)
+□ Screen reader.
+□ Remappatura.
+□ Alto contrasto.
+□ Modalità testo.
+□ Test WCAG.
+Fase 4 — Multiplayer (settimana 15–18)
+□ Server Node.js + Socket.io.
+□ Stanze.
+□ Matchmaking.
+□ Replay.
+Fase 5 — Contenuti (settimana 19–24)
+□ Tornei.
+□ Livelli IA.
+□ Localizzazione.
+□ Asset definitivi.
+Fase 6 — 1.0 (settimana 25–30)
+□ Regolamento completo.
+□ Test con utenti.
+□ Documentazione completa.
+□ Release pubblica.
+13. Struttura repository
+text
+virtual-subbuteo/
+├── .github/
+│   ├── workflows/
+│   │   └── ci.yml
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug.md
+│   │   ├── feature.md
+│   │   └── accessibility.md
+│   └── PULL_REQUEST_TEMPLATE.md
+├── docs/
+│   ├── BLUEPRINT.md
+│   ├── FISTF-RULES.md
+│   ├── ACCESSIBILITY.md
+│   ├── ARCHITECTURE.md
+│   └── ROADMAP.md
+├── public/
+│   ├── models/
+│   ├── textures/
+│   └── sounds/
+├── src/
+│   ├── core/
+│   ├── entities/
+│   ├── camera/
+│   ├── input/
+│   ├── ai/
+│   ├── multiplayer/
+│   ├── accessibility/
+│   ├── ui/
+│   └── i18n/
+├── tests/
+│   ├── unit/
+│   └── e2e/
+├── package.json
+├── vite.config.js
+├── LICENSE
+└── README.md
+14. Risorse
+Regolamento e federazione
+FISTF Sport Rules V5.3: https://fistf.com/download/21022/
+
+FISTF sito ufficiale: https://fistf.com/
+
+Tecnologia
+Three.js: https://threejs.org/
+
+cannon-es: https://github.com/pmndrs/cannon-es
+
+ammo.js: https://github.com/kripken/ammo.js
+
+Socket.io: https://socket.io/
+
+Vite: https://vitejs.dev/
+
+Accessibilità
+WCAG 2.2: https://www.w3.org/TR/WCAG22/
+
+a3model: https://github.com/... (cercare repo aggiornato)
+
+react-three-a11y: https://github.com/... (cercare repo aggiornato)
+
+Amaz3D research: https://dl.acm.org/doi/pdf/10.1145/3587281.3587959
+
+Precedenti storici
+Subbuteo 1990: https://archive.org/details/msdos_Subbuteo_1990
+
+Fufa Stars Soccer: [cercare link ufficiale]
+
+Flick Football 3D: [cercare link ufficiale]
+
+Superbuteo: [cercare link ufficiale]
+
+15. Licenza, legal e contributi
+Licenza
+Codice: MIT.
+
+Documentazione: CC BY-SA 4.0.
+
+Asset: specificare licenza per ogni asset (es. CC0, CC BY).
+
+Legal
+“Subbuteo” è un marchio registrato. Il progetto deve includere un disclaimer chiaro.
+
+Non usare loghi o marchi FISTF senza autorizzazione.
+
+Le regole FISTF sono citate come riferimento normativo, non come affiliazione.
+
+Contributi
+Come contribuire: fork, branch, PR.
+
+Stile codice: ESLint + Prettier.
+
+Commit: Conventional Commits.
+
+Issue: template bug/feature/accessibility.
+
+PR: descrizione, test, screenshot, checklist accessibilità.
+
+Revisione: almeno 1 maintainer.
+
+16. Appendici
+A. Glossario
+Termine	Significato
+Flick	Colpo dato alla figura per muovere la palla
+Flick difensivo	Mossa difensiva prima del flick avversario
+FISTF	Federation International of Sports Table Football
+Fuorigioco	Posizione irregolare di una figura
+Portiere flicker	Portiere che può essere flickato
+Ripresa	Ripartenza del gioco dopo interruzione
+B. Checklist MVP
+□ Campo 1200×750.
+□ Camera ibrida.
+□ 11 figure per squadra.
+□ Palla 21 mm.
+□ Flicking con potenza.
+□ Turni 30s.
+□ IA semplice.
+□ Controlli tastiera.
+□ HUD.
+□ Salvataggio partita.
+C. Issue template — Accessibilità
+markdown
+**Descrizione**
+[Descrizione del problema di accessibilità]
+
+**Tipo**
+- [ ] Tastiera
+- [ ] Screen reader
+- [ ] Contrasto
+- [ ] Movimento
+- [ ] Altro
+
+**Passi per riprodurre**
+1.
+2.
+
+**Comportamento atteso**
+[Descrizione]
+
+**Ambiente**
+- OS:
+- Browser:
+- Tecnologia assistiva:
+D. Uso con DSH
+Questo blueprint è pensato per essere usato come contesto unico. Prompt suggerito per DSH:
+
+“Leggi questo BLUEPRINT.md. Genera:
+
+una lista di issue GitHub con label e milestone;
+
+una struttura iniziale di cartelle e file;
+
+un piano di test per l’accessibilità;
+
+una bozza di README.md;
+
+una stima di effort per la Fase 1.”
+
+Fine del blueprint.
+Questo documento è vivo: aggiornalo con ogni nuova regola, risorsa, idea o lezione appresa.
