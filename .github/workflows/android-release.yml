@@ -1,0 +1,149 @@
+name: Build & Release Android APK
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-android-apk:
+    name: Build APK & Publish GitHub Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Determine release version & tag
+        id: meta
+        run: |
+          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
+            TAG="${GITHUB_REF#refs/tags/}"
+            VERSION="${TAG#v}"
+          else
+            VERSION="1.0.${{ github.run_number }}"
+            TAG="v${VERSION}"
+          fi
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Java 21 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Install Node dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Build web app & sync Capacitor Android
+        run: |
+          npm run build
+          npx cap sync android
+
+      - name: Prepare Android signing keystore
+        id: keystore
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          KEYSTORE_PATH="/tmp/subbuteo-release.jks"
+          if [ -n "$ANDROID_KEYSTORE_BASE64" ]; then
+            echo "$ANDROID_KEYSTORE_BASE64" | base64 -d > "$KEYSTORE_PATH"
+            STORE_PASS="${ANDROID_KEYSTORE_PASSWORD}"
+            KEY_ALIAS="${ANDROID_KEY_ALIAS}"
+            KEY_PASS="${ANDROID_KEY_PASSWORD}"
+            echo "mode=custom-secret" >> "$GITHUB_OUTPUT"
+          else
+            STORE_PASS="subbuteo-fistf-build"
+            KEY_ALIAS="virtualsubbuteo"
+            KEY_PASS="subbuteo-fistf-build"
+            keytool -genkeypair -v \
+              -keystore "$KEYSTORE_PATH" \
+              -storepass "$STORE_PASS" \
+              -alias "$KEY_ALIAS" \
+              -keypass "$KEY_PASS" \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -dname "CN=Virtual Subbuteo 3D, OU=FISTF, O=VirtualSubbuteo, L=Rome, S=RM, C=IT"
+            echo "mode=ephemeral-auto" >> "$GITHUB_OUTPUT"
+          fi
+          echo "::add-mask::$STORE_PASS"
+          echo "::add-mask::$KEY_PASS"
+          echo "path=$KEYSTORE_PATH" >> "$GITHUB_OUTPUT"
+          echo "store_pass=$STORE_PASS" >> "$GITHUB_OUTPUT"
+          echo "key_alias=$KEY_ALIAS" >> "$GITHUB_OUTPUT"
+          echo "key_pass=$KEY_PASS" >> "$GITHUB_OUTPUT"
+
+      - name: Build signed Release APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease --no-daemon \
+            -PappVersionCode=${{ github.run_number }} \
+            -PappVersionName=${{ steps.meta.outputs.version }} \
+            -PRELEASE_STORE_FILE=${{ steps.keystore.outputs.path }} \
+            -PRELEASE_STORE_PASSWORD=${{ steps.keystore.outputs.store_pass }} \
+            -PRELEASE_KEY_ALIAS=${{ steps.keystore.outputs.key_alias }} \
+            -PRELEASE_KEY_PASSWORD=${{ steps.keystore.outputs.key_pass }}
+
+      - name: Prepare APK artifact
+        id: apk
+        run: |
+          SRC_APK="android/app/build/outputs/apk/release/app-release.apk"
+          OUT_APK="Virtual-Subbuteo-3D-${{ steps.meta.outputs.tag }}.apk"
+          cp "$SRC_APK" "$OUT_APK"
+          ls -lh "$OUT_APK"
+          echo "filename=$OUT_APK" >> "$GITHUB_OUTPUT"
+
+      - name: Upload APK as Workflow Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Virtual-Subbuteo-3D-${{ steps.meta.outputs.tag }}
+          path: ${{ steps.apk.outputs.filename }}
+          retention-days: 30
+
+      - name: Create GitHub Release with downloadable APK
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: Virtual Subbuteo 3D ${{ steps.meta.outputs.tag }}
+          generate_release_notes: true
+          make_latest: true
+          body: |
+            ## Virtual Subbuteo 3D — FISTF Edition (${{ steps.meta.outputs.tag }})
+
+            ### Installazione su Android
+            1. Scarica il file **`${{ steps.apk.outputs.filename }}`** dagli **Assets** qui sotto.
+            2. Apri il file sul tuo smartphone Android e consenti l'installazione da origini sconosciute se richiesto.
+            3. Avvia **Virtual Subbuteo 3D**!
+            > Nota: per il multiplayer LAN/Online dall'APK, apri **LAN / Online** e inserisci l'indirizzo IP locale o URL del server (es. `http://192.168.1.X:3000`).
+          files: |
+            ${{ steps.apk.outputs.filename }}

@@ -644,6 +644,7 @@ export class SubbuteoThreeController {
     this.renderer.shadowMap.enabled = !this.isSoftwareGl;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
+    this.renderer.domElement.style.touchAction = 'none';
     container.appendChild(this.renderer.domElement);
     this.maxAnisotropy = this.renderer.capabilities.getMaxAnisotropy();
 

@@ -149,6 +149,19 @@ export default function App() {
   const [roomGuestName, setRoomGuestName] = useState<string | null>(null);
   const [lanAddresses, setLanAddresses] = useState<string[]>([]);
   const [roomError, setRoomError] = useState<string | null>(null);
+  const isCapacitorNative =
+    typeof window !== 'undefined' &&
+    (window.location.protocol === 'capacitor:' ||
+      (window.location.hostname === 'localhost' && window.location.port === ''));
+  const [serverUrl, setServerUrl] = useState<string>(() => {
+    if (typeof window === 'undefined') return '';
+    return localStorage.getItem('subbuteo_server_url') || '';
+  });
+  const [serverUrlInput, setServerUrlInput] = useState<string>(() => {
+    if (typeof window === 'undefined') return '';
+    return localStorage.getItem('subbuteo_server_url') || '';
+  });
+  const [socketConnected, setSocketConnected] = useState<boolean>(false);
 
   // Mutable simulation refs (accessed at 60fps inside the loop without re-creating the canvas)
   const figuresRef = useRef<PlayerFigure[]>(createInitialFigures('4-3-3', '4-3-3'));
@@ -377,7 +390,14 @@ export default function App() {
 
   // Initialize Socket.io & fetch local LAN IP addresses
   useEffect(() => {
-    fetch('/api/network-info')
+    const cleanBase = serverUrl.trim().replace(/\/+$/, '');
+    if (isCapacitorNative && !cleanBase) {
+      setSocketConnected(false);
+      return;
+    }
+
+    const infoEndpoint = cleanBase ? `${cleanBase}/api/network-info` : '/api/network-info';
+    fetch(infoEndpoint)
       .then((r) => r.json())
       .then((data) => {
         if (Array.isArray(data.lanAddresses)) {
@@ -386,11 +406,20 @@ export default function App() {
       })
       .catch(() => {});
 
-    const socket = io({
-      path: '/socket.io',
-      transports: ['websocket', 'polling'],
-    });
+    const socket = cleanBase
+      ? io(cleanBase, {
+          path: '/socket.io',
+          transports: ['websocket', 'polling'],
+        })
+      : io({
+          path: '/socket.io',
+          transports: ['websocket', 'polling'],
+        });
     socketRef.current = socket;
+
+    socket.on('connect', () => setSocketConnected(true));
+    socket.on('disconnect', () => setSocketConnected(false));
+    socket.on('connect_error', () => setSocketConnected(false));
 
     socket.on('lobby:rooms_updated', (rooms: OnlineRoomSummary[]) => {
       setOnlineRooms(rooms);
@@ -458,8 +487,10 @@ export default function App() {
 
     return () => {
       socket.disconnect();
+      socketRef.current = null;
+      setSocketConnected(false);
     };
-  }, [appendRuleLog, skipDefensiveFlick, triggerFlickAction]);
+  }, [appendRuleLog, isCapacitorNative, serverUrl, skipDefensiveFlick, triggerFlickAction]);
 
   // Trigger AI decisions when it is CPU's sub-turn
   useEffect(() => {
@@ -1465,13 +1496,14 @@ export default function App() {
                 <div className="lg:col-span-3 flex flex-col gap-1.5">
                   <div className="flex items-center gap-1.5">
                     <button
-                      onMouseDown={() => {
+                      onPointerDown={(e) => {
+                        e.preventDefault();
                         if (turnPhaseRef.current === TurnPhase.SIMULATING) return;
                         isChargingRef.current = true;
                         chargeDirRef.current = 1;
                         setIsChargingPower(true);
                       }}
-                      onMouseUp={() => {
+                      onPointerUp={() => {
                         if (isChargingRef.current) {
                           isChargingRef.current = false;
                           setIsChargingPower(false);
@@ -1486,11 +1518,15 @@ export default function App() {
                           isDefensiveFlick: turnPhaseRef.current === TurnPhase.DEFENSE_POSITION,
                         });
                       }}
+                      onPointerCancel={() => {
+                        isChargingRef.current = false;
+                        setIsChargingPower(false);
+                      }}
                       disabled={
                         turnPhase === TurnPhase.SIMULATING ||
                         (gameMode === GameMode.CPU && activeSubTurnTeam === 'away')
                       }
-                      className={`flex-1 py-2.5 px-4 rounded-xl font-display text-lg font-bold tracking-wide uppercase transition-transform cursor-pointer whitespace-nowrap shrink-0 ${
+                      className={`flex-1 py-2.5 px-4 rounded-xl font-display text-lg font-bold tracking-wide uppercase transition-transform cursor-pointer whitespace-nowrap shrink-0 touch-none ${
                         isChargingPower
                           ? 'bg-amber-400 text-slate-950 scale-[0.98]'
                           : turnPhase === TurnPhase.DEFENSE_POSITION
@@ -1788,17 +1824,41 @@ export default function App() {
               </button>
             </div>
 
-            {/* LAN Network Discovery Box */}
-            <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5 text-xs">
-              <div className="font-semibold text-emerald-400 flex items-center gap-1.5">
-                <Wifi className="w-4 h-4" />
-                <span>Connessione Diretta Rete Locale (LAN / Wi-Fi) & Online</span>
+            {/* LAN Network Discovery & Server Connection Box */}
+            <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-2.5 text-xs">
+              <div className="flex items-center justify-between">
+                <div className="font-semibold text-emerald-400 flex items-center gap-1.5">
+                  <Wifi className="w-4 h-4" />
+                  <span>Connessione Diretta Rete Locale (LAN / Wi-Fi) & Online</span>
+                </div>
+                <span className={`font-mono font-semibold ${socketConnected ? 'text-emerald-400' : 'text-amber-400'}`}>
+                  {socketConnected ? 'Connesso al Server' : 'Offline / Configura Server'}
+                </span>
               </div>
               <p className="text-slate-300">
                 Crea una stanza qui sotto e condividi il <strong>Codice Stanza</strong> con un altro dispositivo sulla
-                stessa rete LAN o via browser online. Tutte le mosse, gli effetti Magnus e i flick difensivi sono
-                sincronizzati in tempo reale dal server.
+                stessa rete LAN o via browser online. Dall’app Android (APK), inserisci qui l’indirizzo IP del server
+                (es. <code className="font-mono text-sky-300">http://192.168.1.50:3000</code>):
               </p>
+              <div className="flex flex-wrap gap-2 pt-0.5">
+                <input
+                  type="url"
+                  value={serverUrlInput}
+                  onChange={(e) => setServerUrlInput(e.target.value)}
+                  placeholder={isCapacitorNative ? 'http://192.168.1.X:3000 oppure URL Online' : 'Server locale corrente (automatico)'}
+                  className="flex-1 min-w-[200px] px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 font-mono text-xs text-white"
+                />
+                <button
+                  onClick={() => {
+                    const trimmed = serverUrlInput.trim();
+                    localStorage.setItem('subbuteo_server_url', trimmed);
+                    setServerUrl(trimmed);
+                  }}
+                  className="px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs cursor-pointer"
+                >
+                  Connetti Server
+                </button>
+              </div>
               {lanAddresses.length > 0 && (
                 <div className="pt-1 font-mono text-slate-400">
                   Indirizzi LAN rilevati sul server:{' '}
